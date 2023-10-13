@@ -66,7 +66,7 @@ int main() {
     vector<int> tablica_miast, najkrotsza;              // vector najkrotsza przechowuje najkrotsza droge przez miasta
 
 
-    cout << "Podaj liczbe miast: ";   // w pliku i tak jest ile miast jest,
+    cout << "Podaj liczbe miast: ";   // w pliku i tak jest liczba miast jest,
     cin >> liczba_miast;             // ale to jest po to aby latwo wybrac z kilku plikow
     cout << endl;
 
