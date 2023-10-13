@@ -84,8 +84,9 @@ int main() {
 
     for (int j : najkrotsza)    // wypisanie najkrotszej drogi
         cout << j <<" ";
+    cout<<endl;
 
-
+    cin.get();
     cin.get(); // aby sie konsola nie zamykala of razu
     return 0;
 }
