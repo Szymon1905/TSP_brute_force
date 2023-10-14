@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <fstream>
-
+#include <chrono>
 
 using namespace std;
 
@@ -62,12 +62,14 @@ vector<vector<int> > wczytaj_macierz(const string& daneWejsciowe, int &liczba_mi
 
 
 int main() {
+    while(true){
+
     int dlugosc_sciezki = INT_MAX , liczba_miast = 0;  // dlugosc sciezki na max aby potem szukac najkrotszej
     vector<int> tablica_miast, najkrotsza;              // vector najkrotsza przechowuje najkrotsza droge przez miasta
 
 
-    cout << "Podaj liczbe miast: ";   // w pliku i tak jest liczba miast jest,
-    cin >> liczba_miast;             // ale to jest po to aby latwo wybrac z kilku plikow
+    cout << "Podaj liczbe miast w zakresie 4-20: ";   // w pliku i tak jest liczba miast,
+    cin >> liczba_miast;             // ale to jest po to aby latwo wybrac ktore chcemy z kilku plikow
     cout << endl;
 
     vector<vector<int> > macierz = wczytaj_macierz(to_string(liczba_miast) + "_test.txt", liczba_miast);
@@ -76,8 +78,14 @@ int main() {
         tablica_miast.push_back(i);          // gdyż miasto startowe zostaje na sowim miejscu
                                                 // i nie bierze udziału w generowaniu permutacji,
 
+    auto start = chrono::high_resolution_clock::now(); // start pomiaru czasu
 
     permutacja(tablica_miast, dlugosc_sciezki, najkrotsza, macierz);    // obliczanie najkrotszej sciezki
+
+    auto koniec = chrono::high_resolution_clock::now(); // koniec pomiaru czasu
+
+    auto czas_wykonania = chrono::duration_cast<chrono::microseconds>(koniec - start);
+    cout << "Czas wykonania: " << czas_wykonania.count() << " mikrosekund" << endl;
 
     cout << "najkrotsza dlugosc_sciezki dlugosc: " << dlugosc_sciezki << endl;
     cout << "najkrotsza dlugosc_sciezki przez miasta: ";
@@ -85,8 +93,7 @@ int main() {
     for (int j : najkrotsza)    // wypisanie najkrotszej drogi
         cout << j <<" ";
     cout<<endl;
+    cout<<endl;
+    }
 
-    cin.get();
-    cin.get(); // aby sie konsola nie zamykala of razu
-    return 0;
 }
