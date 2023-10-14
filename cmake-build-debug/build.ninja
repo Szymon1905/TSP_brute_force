@@ -65,6 +65,7 @@ build CMakeFiles/pea_projekt_brute_force_v2.dir/main.cpp.obj: CXX_COMPILER__pea_
 
 build pea_projekt_brute_force_v2.exe: CXX_EXECUTABLE_LINKER__pea_projekt_brute_force_v2_Debug CMakeFiles/pea_projekt_brute_force_v2.dir/main.cpp.obj
   FLAGS = -g
+  LINK_FLAGS = -static
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\pea_projekt_brute_force_v2.dir
   POST_BUILD = cd .

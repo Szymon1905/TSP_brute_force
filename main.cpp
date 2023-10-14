@@ -21,7 +21,7 @@ void permutacja(vector<int>& permutacja, int &sciezka, vector<int>& najkrotsza, 
             obliczona = obliczona + macierz[ permutacja[j] ][ permutacja[j + 1] ];  // po drodze bez sciezek ze start oraz do start
         }
 
-        obliczona = obliczona + macierz[0][permutacja.back()];  // sciezka z ostatniego miasta do startu
+        obliczona = obliczona + macierz[permutacja.back()][0];  // sciezka z ostatniego miasta do startu
 
         if (obliczona < sciezka){   // aktualizacja najkrotszej sciezki
             sciezka = obliczona;
