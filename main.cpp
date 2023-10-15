@@ -62,6 +62,7 @@ vector<vector<int> > wczytaj_macierz(const string& daneWejsciowe, int &liczba_mi
 
 
 int main() {
+    cout<<"Autor: Szymon Borzdyński"<<endl;
     while(true){
 
     int dlugosc_sciezki = INT_MAX , liczba_miast = 0;  // dlugosc sciezki na max aby potem szukac najkrotszej
@@ -86,6 +87,8 @@ int main() {
 
     auto czas_wykonania = chrono::duration_cast<chrono::microseconds>(koniec - start);
     cout << "Czas wykonania: " << czas_wykonania.count() << " mikrosekund" << endl;
+    cout << "Czas wykonania: " << czas_wykonania.count() / 1000 << " milisekund" << endl;
+
 
     cout << "najkrotsza dlugosc_sciezki dlugosc: " << dlugosc_sciezki << endl;
     cout << "najkrotsza dlugosc_sciezki przez miasta: ";
