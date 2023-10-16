@@ -2,6 +2,7 @@
 #include <vector>
 #include <fstream>
 #include <chrono>
+#include <Windows.h>
 
 using namespace std;
 
@@ -62,7 +63,9 @@ vector<vector<int> > wczytaj_macierz(const string& daneWejsciowe, int &liczba_mi
 
 
 int main() {
+    SetConsoleOutputCP(CP_UTF8); // Konsola ustawiona na utf-8 aby były Polskie litery
     cout<<"Autor: Szymon Borzdyński"<<endl;
+    cout << "Wpisz  0 aby zakończyć program: "<<endl;
     while(true){
 
     int dlugosc_sciezki = INT_MAX , liczba_miast = 0;  // dlugosc sciezki na max aby potem szukac najkrotszej
@@ -72,6 +75,10 @@ int main() {
     cout << "Podaj liczbe miast w zakresie 4-20: ";   // w pliku i tak jest liczba miast,
     cin >> liczba_miast;             // ale to jest po to aby latwo wybrac ktore chcemy z kilku plikow
     cout << endl;
+
+    if (liczba_miast == 0){
+        return 0;
+    }
 
     vector<vector<int> > macierz = wczytaj_macierz(to_string(liczba_miast) + "_test.txt", liczba_miast);
 
