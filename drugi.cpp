@@ -48,15 +48,15 @@ void drugi::Branch_and_bound(vector<int>& permutacja, int &sciezka, vector<int>&
                     return;
                 }
                 goto skip;
-
-                break;
             }
         }
 
+        /*
         if (obliczona > sciezka){
             obliczona = 0;
             continue;
         }
+        */
 
         obliczona = obliczona + macierz[permutacja.back()][0];  // sciezka z ostatniego miasta do startu
 
