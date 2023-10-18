@@ -21,7 +21,6 @@ void drugi::Branch_and_bound(vector<int>& permutacja, int &sciezka, vector<int>&
 
         obliczona = obliczona + macierz[0][permutacja.front()];    // sciezka ze startu do pierwszego miasta
 
-        cout<<obliczona<<endl;
 
         if (obliczona > sciezka){
             obliczona = 0;
@@ -36,7 +35,6 @@ void drugi::Branch_and_bound(vector<int>& permutacja, int &sciezka, vector<int>&
             droga = macierz[ permutacja[j] ][ permutacja[j + 1] ]; // w vektorze permutacja są tylko miasta
             obliczona = obliczona + droga;  // po drodze bez sciezek ze start oraz do start
 
-            cout<<obliczona<<endl;
 
             if (obliczona > sciezka){
                 obliczona = 0;
@@ -60,13 +58,10 @@ void drugi::Branch_and_bound(vector<int>& permutacja, int &sciezka, vector<int>&
 
         obliczona = obliczona + macierz[permutacja.back()][0];  // sciezka z ostatniego miasta do startu
 
-        cout<<obliczona<<endl;
-
         if (obliczona < sciezka){   // aktualizacja najkrotszej sciezki
             sciezka = obliczona;
             najkrotsza = permutacja;
         }
-
 
         obliczona = 0;    // reset obliczonej nowej sciezki
 
