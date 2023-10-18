@@ -3,8 +3,10 @@
 #include <fstream>
 #include <chrono>
 #include <Windows.h>
+#include "drugi.h"
 
 using namespace std;
+
 
 void permutacja(vector<int>& permutacja, int &sciezka, vector<int>& najkrotsza, vector<vector<int> > macierz){
     int obliczona = 0;
