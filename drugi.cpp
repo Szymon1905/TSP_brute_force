@@ -6,15 +6,17 @@ using namespace std;
 
 void drugi::Branch_and_bound(vector<int>& permutacja, int &sciezka, vector<int>& najkrotsza, vector<vector<int> > macierz) {
     int obliczona = 0;
-    int droga = 0;
+    int droga;
     cout << endl;
     do {
+        skip:
         // wypisanie danej permutacji ( już nie używane )
         /*
         for(int i : permutacja){
             cout << i << " ";
         }
-         */
+        cout<<endl;
+        */
 
         obliczona = obliczona + macierz[0][permutacja.front()];    // sciezka ze startu do pierwszego miasta
 
@@ -22,7 +24,11 @@ void drugi::Branch_and_bound(vector<int>& permutacja, int &sciezka, vector<int>&
 
         if (obliczona > sciezka){
             obliczona = 0;
-            continue;
+            int przesuw = permutacja.front();
+            while (przesuw == permutacja.front()){
+                next_permutation(permutacja.begin(),permutacja.end());
+            }
+            goto skip;
         }
 
         for(int j = 0; j < permutacja.size() - 1; j++){
@@ -49,6 +55,7 @@ void drugi::Branch_and_bound(vector<int>& permutacja, int &sciezka, vector<int>&
             sciezka = obliczona;
             najkrotsza = permutacja;
         }
+
 
         obliczona = 0;    // reset obliczonej nowej sciezki
 
