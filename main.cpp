@@ -68,7 +68,7 @@ void brute_force(){
     vector<int> tablica_miast, najkrotsza;              // vector najkrotsza przechowuje najkrotsza droge przez miasta
 
 
-    cout << "Podaj liczbe miast w zakresie 4-20: ";   // w pliku i tak jest liczba miast,
+    cout << "[BF] Podaj liczbe miast w zakresie 4-20: ";   // w pliku i tak jest liczba miast,
     cin >> liczba_miast;             // ale to jest po to aby latwo wybrac ktore chcemy z kilku plikow
     cout << endl;
 
@@ -106,7 +106,7 @@ void BB(){
     vector<int> tablica_miast, najkrotsza;              // vector najkrotsza przechowuje najkrotsza droge przez miasta
 
 
-    cout << "Podaj liczbe miast w zakresie 4-20: ";   // w pliku i tak jest liczba miast,
+    cout << "[BB] Podaj liczbe miast w zakresie 4-20: ";   // w pliku i tak jest liczba miast,
     cin >> liczba_miast;             // ale to jest po to aby latwo wybrac ktore chcemy z kilku plikow
     cout << endl;
 
@@ -150,12 +150,14 @@ int main() {
     cout << "0 - Wyjście" << endl;
     cout << "1 - Brute force" << endl;
     cout << "2 - Branch and Bound" << endl;
+    cin>>opcja;
 
     while(true){
         switch (opcja) {
             default:
                 system("CLS");
                 cout << "Błędna opcja" << endl << endl;
+                cin>>opcja;
                 break;
             case 1:
                 brute_force();
