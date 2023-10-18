@@ -76,7 +76,7 @@ int main() {
     cin >> liczba_miast;             // ale to jest po to aby latwo wybrac ktore chcemy z kilku plikow
     cout << endl;
 
-    if (liczba_miast == 0){
+    if (liczba_miast == 0){  // wyjście z programu jak wpiszemy zero
         return 0;
     }
 
@@ -100,8 +100,10 @@ int main() {
     cout << "najkrotsza dlugosc_sciezki dlugosc: " << dlugosc_sciezki << endl;
     cout << "najkrotsza dlugosc_sciezki przez miasta: ";
 
+    cout<<"0 ";
     for (int j : najkrotsza)    // wypisanie najkrotszej drogi
         cout << j <<" ";
+    cout<<"0 ";
     cout<<endl;
     cout<<endl;
     }
