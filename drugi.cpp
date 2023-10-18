@@ -11,22 +11,17 @@ void drugi::Branch_and_bound(vector<int>& permutacja, int &sciezka, vector<int>&
     cout << endl;
     do {
         skip:
-        // wypisanie danej permutacji ( już nie używane )
-        /*
-        for(int i : permutacja){
-            cout << i << " ";
-        }
-        cout<<endl;
-        */
 
         obliczona = obliczona + macierz[0][permutacja.front()];    // sciezka ze startu do pierwszego miasta
-
 
         if (obliczona > sciezka){
             obliczona = 0;
             int przesuw = permutacja.front();
             while (przesuw == permutacja.front()){
-                next_permutation(permutacja.begin(),permutacja.end());
+                czy_dalej = next_permutation(permutacja.begin(),permutacja.end());
+            }
+            if (!czy_dalej){
+                return;
             }
             goto skip;
         }
@@ -49,13 +44,6 @@ void drugi::Branch_and_bound(vector<int>& permutacja, int &sciezka, vector<int>&
             }
         }
 
-        /*
-        if (obliczona > sciezka){
-            obliczona = 0;
-            continue;
-        }
-        */
-
         obliczona = obliczona + macierz[permutacja.back()][0];  // sciezka z ostatniego miasta do startu
 
         if (obliczona < sciezka){   // aktualizacja najkrotszej sciezki
@@ -66,7 +54,7 @@ void drugi::Branch_and_bound(vector<int>& permutacja, int &sciezka, vector<int>&
         obliczona = 0;    // reset obliczonej nowej sciezki
 
     } while ( next_permutation(permutacja.begin(), permutacja.end() ) );    // iteruje po kolejnej permutacji
-    // https://cplusplus.com/reference/algorithm/next_permutation/   <-- tu znalazłem
+
 }
 
 
