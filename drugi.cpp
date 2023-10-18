@@ -7,6 +7,7 @@ using namespace std;
 void drugi::Branch_and_bound(vector<int>& permutacja, int &sciezka, vector<int>& najkrotsza, vector<vector<int> > macierz) {
     int obliczona = 0;
     int droga;
+    bool czy_dalej;
     cout << endl;
     do {
         skip:
@@ -38,6 +39,16 @@ void drugi::Branch_and_bound(vector<int>& permutacja, int &sciezka, vector<int>&
             cout<<obliczona<<endl;
 
             if (obliczona > sciezka){
+                obliczona = 0;
+                int przesuw = permutacja[j+1];
+                while (przesuw == permutacja[j+1]){
+                    czy_dalej = next_permutation(permutacja.begin(),permutacja.end());
+                }
+                if (!czy_dalej){
+                    return;
+                }
+                goto skip;
+
                 break;
             }
         }
