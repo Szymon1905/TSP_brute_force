@@ -55,6 +55,12 @@ build CMakeFiles/pea_projekt_brute_force_v2.dir/main.cpp.obj: CXX_COMPILER__pea_
   OBJECT_DIR = CMakeFiles\pea_projekt_brute_force_v2.dir
   OBJECT_FILE_DIR = CMakeFiles\pea_projekt_brute_force_v2.dir
 
+build CMakeFiles/pea_projekt_brute_force_v2.dir/drugi.cpp.obj: CXX_COMPILER__pea_projekt_brute_force_v2_Debug C$:/Users/Dom/CLionProjects/pea_projekt_brute_force_v2/drugi.cpp || cmake_object_order_depends_target_pea_projekt_brute_force_v2
+  DEP_FILE = CMakeFiles\pea_projekt_brute_force_v2.dir\drugi.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always -std=gnu++20
+  OBJECT_DIR = CMakeFiles\pea_projekt_brute_force_v2.dir
+  OBJECT_FILE_DIR = CMakeFiles\pea_projekt_brute_force_v2.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target pea_projekt_brute_force_v2
@@ -63,7 +69,7 @@ build CMakeFiles/pea_projekt_brute_force_v2.dir/main.cpp.obj: CXX_COMPILER__pea_
 #############################################
 # Link the executable pea_projekt_brute_force_v2.exe
 
-build pea_projekt_brute_force_v2.exe: CXX_EXECUTABLE_LINKER__pea_projekt_brute_force_v2_Debug CMakeFiles/pea_projekt_brute_force_v2.dir/main.cpp.obj
+build pea_projekt_brute_force_v2.exe: CXX_EXECUTABLE_LINKER__pea_projekt_brute_force_v2_Debug CMakeFiles/pea_projekt_brute_force_v2.dir/main.cpp.obj CMakeFiles/pea_projekt_brute_force_v2.dir/drugi.cpp.obj
   FLAGS = -g
   LINK_FLAGS = -static
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32

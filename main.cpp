@@ -63,14 +63,8 @@ vector<vector<int> > wczytaj_macierz(const string& daneWejsciowe, int &liczba_mi
     return macierz;     // zwracam gotowa macierz
 }
 
-
-int main() {
-    SetConsoleOutputCP(CP_UTF8); // Konsola ustawiona na utf-8 aby były Polskie litery
-    cout<<"Autor: Szymon Borzdyński"<<endl;
-    cout << "Wpisz  0 aby zakończyć program: "<<endl;
-    while(true){
-
-    int dlugosc_sciezki = INT_MAX , liczba_miast = 0;  // dlugosc sciezki na max aby potem szukac najkrotszej
+void brute_force(){
+    int dlugosc_sciezki = INT_MAX, liczba_miast = 0;  // dlugosc sciezki na max aby potem szukac najkrotszej
     vector<int> tablica_miast, najkrotsza;              // vector najkrotsza przechowuje najkrotsza droge przez miasta
 
 
@@ -78,15 +72,12 @@ int main() {
     cin >> liczba_miast;             // ale to jest po to aby latwo wybrac ktore chcemy z kilku plikow
     cout << endl;
 
-    if (liczba_miast == 0){  // wyjście z programu jak wpiszemy zero
-        return 0;
-    }
 
     vector<vector<int> > macierz = wczytaj_macierz(to_string(liczba_miast) + "_test.txt", liczba_miast);
 
-    for (int i=1; i < liczba_miast; i++)   // wstawiam miasta do vectora, bez miasta startowego
+    for (int i = 1; i < liczba_miast; i++)   // wstawiam miasta do vectora, bez miasta startowego
         tablica_miast.push_back(i);          // gdyż miasto startowe zostaje na sowim miejscu
-                                                // i nie bierze udziału w generowaniu permutacji,
+    // i nie bierze udziału w generowaniu permutacji,
 
     auto start = chrono::high_resolution_clock::now(); // start pomiaru czasu
 
@@ -102,12 +93,78 @@ int main() {
     cout << "najkrotsza dlugosc_sciezki dlugosc: " << dlugosc_sciezki << endl;
     cout << "najkrotsza dlugosc_sciezki przez miasta: ";
 
-    cout<<"0 ";
-    for (int j : najkrotsza)    // wypisanie najkrotszej drogi
-        cout << j <<" ";
-    cout<<"0 ";
-    cout<<endl;
-    cout<<endl;
-    }
+    cout << "0 ";
+    for (int j: najkrotsza)    // wypisanie najkrotszej drogi
+        cout << j << " ";
+    cout << "0 ";
+    cout << endl;
+    cout << endl;
+}
 
+void BB(){
+    int dlugosc_sciezki = INT_MAX, liczba_miast = 0;  // dlugosc sciezki na max aby potem szukac najkrotszej
+    vector<int> tablica_miast, najkrotsza;              // vector najkrotsza przechowuje najkrotsza droge przez miasta
+
+
+    cout << "Podaj liczbe miast w zakresie 4-20: ";   // w pliku i tak jest liczba miast,
+    cin >> liczba_miast;             // ale to jest po to aby latwo wybrac ktore chcemy z kilku plikow
+    cout << endl;
+
+
+    vector<vector<int> > macierz = wczytaj_macierz(to_string(liczba_miast) + "_test.txt", liczba_miast);
+
+    for (int i = 1; i < liczba_miast; i++)   // wstawiam miasta do vectora, bez miasta startowego
+        tablica_miast.push_back(i);          // gdyż miasto startowe zostaje na sowim miejscu
+    // i nie bierze udziału w generowaniu permutacji,
+
+    auto start = chrono::high_resolution_clock::now(); // start pomiaru czasu
+
+    drugi::Branch_and_bound(tablica_miast, dlugosc_sciezki, najkrotsza, macierz);    // obliczanie najkrotszej sciezki za pomocą BB
+
+    auto koniec = chrono::high_resolution_clock::now(); // koniec pomiaru czasu
+
+    auto czas_wykonania = chrono::duration_cast<chrono::microseconds>(koniec - start);
+    cout << "Czas wykonania: " << czas_wykonania.count() << " mikrosekund" << endl;
+    cout << "Czas wykonania: " << czas_wykonania.count() / 1000 << " milisekund" << endl;
+
+
+    cout << "najkrotsza dlugosc_sciezki dlugosc: " << dlugosc_sciezki << endl;
+    cout << "najkrotsza dlugosc_sciezki przez miasta: ";
+
+    cout << "0 ";
+    for (int j: najkrotsza)    // wypisanie najkrotszej drogi
+        cout << j << " ";
+    cout << "0 ";
+    cout << endl;
+    cout << endl;
+}
+
+int main() {
+    SetConsoleOutputCP(CP_UTF8); // Konsola ustawiona na utf-8 aby były Polskie litery
+
+    int opcja;
+
+
+    cout<<"Autor: Szymon Borzdyński"<<endl;
+    cout << "Opcje:" << endl;
+    cout << "0 - Wyjście" << endl;
+    cout << "1 - Brute force" << endl;
+    cout << "2 - Branch and Bound" << endl;
+
+    while(true){
+        switch (opcja) {
+            default:
+                system("CLS");
+                cout << "Błędna opcja" << endl << endl;
+                break;
+            case 1:
+                brute_force();
+                break;
+            case 2:
+                BB();
+                break;
+            case 0:
+                return 0;
+        }
+    }
 }
