@@ -1,0 +1,16 @@
+Autor: Szymon Borzdyński
+Opcje:
+0 - Wyjście
+1 - Brute force
+2 - Branch and Bound
+[BB] Podaj liczbe miast w zakresie 4-20: 
+Otwarto plik 12_test.txt
+
+koniecccccccc
+Czas wykonania: 4395995 mikrosekund
+Czas wykonania: 4395 milisekund
+najkrotsza dlugosc_sciezki dlugosc: 164
+najkrotsza dlugosc_sciezki przez miasta: 0 3 10 6 1 7 8 5 4 11 9 2 0 
+
+[BB] Podaj liczbe miast w zakresie 4-20: 
+Nie udało się otworzyć pliku wejściowego
