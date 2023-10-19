@@ -9,6 +9,7 @@ void drugi::Branch_and_bound(vector<int>& permutacja, int &sciezka, vector<int>&
     int droga;
     bool czy_dalej;
     cout << endl;
+
     do {
         skip:
 
@@ -19,10 +20,11 @@ void drugi::Branch_and_bound(vector<int>& permutacja, int &sciezka, vector<int>&
             int przesuw = permutacja.front();
             while (przesuw == permutacja.front()){
                 czy_dalej = next_permutation(permutacja.begin(),permutacja.end());
+                if (!czy_dalej){
+                    return;
+                }
             }
-            if (!czy_dalej){
-                return;
-            }
+
             goto skip;
         }
 
@@ -36,10 +38,11 @@ void drugi::Branch_and_bound(vector<int>& permutacja, int &sciezka, vector<int>&
                 int przesuw = permutacja[j+1];
                 while (przesuw == permutacja[j+1]){
                     czy_dalej = next_permutation(permutacja.begin(),permutacja.end());
+                    if (!czy_dalej){
+                        return;
+                    }
                 }
-                if (!czy_dalej){
-                    return;
-                }
+
                 goto skip;
             }
         }
@@ -53,12 +56,8 @@ void drugi::Branch_and_bound(vector<int>& permutacja, int &sciezka, vector<int>&
 
         obliczona = 0;    // reset obliczonej nowej sciezki
 
-    } while ( next_permutation(permutacja.begin(), permutacja.end() ) );    // iteruje po kolejnej permutacji
+    } while ( next_permutation(permutacja.begin(), permutacja.end() ));    // iteruje po kolejnej permutacji
 
 }
 
 
-
-void drugi::Stop() {
-
-}
