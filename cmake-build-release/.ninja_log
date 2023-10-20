@@ -1,9 +1,6 @@
 # ninja log v5
-8	1529	7194160212473555	CMakeFiles/pea_projekt_brute_force_v2.dir/drugi.cpp.obj	93eceb4f13231c61
-6	7797	7194117487799726	CMakeFiles/pea_projekt_brute_force_v2.dir/main.cpp.obj	4793500001faecf4
-1483	1986	7194152621304376	pea_projekt_brute_force_v2.exe	ccbf30ce08c4625c
-7	956	7194118685057376	CMakeFiles/pea_projekt_brute_force_v2.dir/test.cpp.obj	bbec858b4879a8d1
-1	225	7194160352217192	build.ninja	f2ad916299ba1324
-3	868	7194160490191138	CMakeFiles/pea_projekt_brute_force_v2.dir/drugi.cpp.obj	93eceb4f13231c61
+6	4688	7195201163744081	CMakeFiles/pea_projekt_brute_force_v2.dir/main.cpp.obj	4793500001faecf4
+0	1663	7195200685090756	CMakeFiles/pea_projekt_brute_force_v2.dir/drugi.cpp.obj	93eceb4f13231c61
+4689	5236	7195201169081223	pea_projekt_brute_force_v2.exe	1b4da5b100f005c0
+1	922	7195202703244479	build.ninja	f2ad916299ba1324
 6	2154	7194160589945247	CMakeFiles/pea_projekt_brute_force_v2.dir/test.cpp.obj	bbec858b4879a8d1
-2155	3116	7194160599709665	pea_projekt_brute_force_v2.exe	ccbf30ce08c4625c
